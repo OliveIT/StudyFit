@@ -1,4 +1,12 @@
 {
   "name": "fitness",
-  "displayName": "fitness"
+  "displayName": "fitness",
+  "firebaseConfig": {
+    "apiKey": "AIzaSyCFOPuFpRpqMRVNml1D7a3NuKKIRB8thlU",
+    "authDomain": "studyfit-cf130.firebaseapp.com",
+    "databaseURL": "https://studyfit-cf130.firebaseio.com",
+    "projectId": "studyfit-cf130",
+    "storageBucket": "studyfit-cf130.appspot.com",
+    "messagingSenderId": "850632509797"
+  }
 }

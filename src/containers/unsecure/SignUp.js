@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Image, ImageBackground, Text, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from "react-redux";
+import firebase from 'firebase';
 
 import styles from '../../styles';
 
@@ -14,6 +15,7 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isProcessing: false
     }
   }
 
@@ -25,8 +27,8 @@ class SignUp extends React.Component {
   }
 
   validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   };
 
   onSignUp() {
@@ -56,6 +58,33 @@ class SignUp extends React.Component {
       this.refs.inputConfirmPwd.focus();
       return;
     }
+
+    this.setState({ isProcessing: true });
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(params.email, params.password)
+      .then(() => {
+        this.createUser(params);
+      })
+      .catch(error => {
+        this.setState({ isProcessing: false });
+        alert(error.message);
+      });
+  }
+
+  createUser(params) {
+    firebase
+      .database()
+      .ref('users')
+      .push(params)
+      .then((data) => {
+        this.setState({ isProcessing: false });
+        this.props.navigation.replace("home");
+      })
+      .catch(error => {
+        this.setState({ isProcessing: false });
+        alert(error.message);
+      })
   }
 
   render() {
@@ -66,13 +95,13 @@ class SignUp extends React.Component {
           <View>
             <Text style={styles.SignIn.logo}>Study Fit</Text>
             
-            <TextInput placeholder="First name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputFirstName"/>
-            <TextInput placeholder="Last name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputLastName"/>
-            <TextInput keyboardType="email-address" placeholder="Email" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputEmail"/>
-            <TextInput secureTextEntry={true} placeholder="Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputPwd"/>
-            <TextInput secureTextEntry={true} placeholder="Confirm Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputConfirmPwd"/>
+            <TextInput placeholder="First name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputFirstName" value="leo"/>
+            <TextInput placeholder="Last name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputLastName" value="suzin"/>
+            <TextInput keyboardType="email-address" placeholder="Email" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputEmail" value="leosuzin1126@gmail.com"/>
+            <TextInput secureTextEntry={true} placeholder="Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputPwd" value="123456"/>
+            <TextInput secureTextEntry={true} placeholder="Confirm Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputConfirmPwd" value="123456"/>
 
-            <TouchableOpacity style={styles.SignIn.mainBtn.container} onPress={this.onSignUp.bind(this)}>
+            <TouchableOpacity style={styles.SignIn.mainBtn.container} onPress={this.onSignUp.bind(this)} disabled={this.state.isProcessing}>
               <Text style={styles.SignIn.mainBtn.text}>Sign Up</Text>
             </TouchableOpacity>
           </View>
