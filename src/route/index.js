@@ -3,6 +3,7 @@ import { createDrawerNavigator, createStackNavigator, createAppContainer } from 
 
 import Presentation from "../containers/unsecure/Presentation";
 import SignIn from "../containers/unsecure/SignIn";
+import SignUp from "../containers/unsecure/SignUp";
 
 export const INITIAL_ROUTE = 'unsecured';
 export const INITIAL_SECURED_ROUTE = 'home';
@@ -15,6 +16,9 @@ const unsecuredRoutes = {
   },
   signin: {
     screen: SignIn
+  },
+  signup: {
+    screen: SignUp
   },
 }
 

@@ -1,16 +1,13 @@
 import * as React from 'react';
 import { View, Image, ImageBackground, Text, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from "react-redux";
-import { Container, Content } from "native-base";
-
-import { fetchData, setStop } from '../../redux/actions';
 
 import styles from '../../styles';
 
 import ImgBack from '../../../assets/images/background.jpg';
 import { ScrollView } from 'react-native-gesture-handler';
 
-class SignIn extends React.Component {
+class ForgotPwd extends React.Component {
   static navigationOptions = {
   };
 
@@ -69,8 +66,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  fetchData,
-  setStop
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(ForgotPwd);

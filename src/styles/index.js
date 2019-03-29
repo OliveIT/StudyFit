@@ -1,6 +1,8 @@
 import { Dimensions, Platform } from 'react-native';
 const {width, height} = Dimensions.get("window");
 
+const safeAreaHeight = 24;
+
 const styles = {
   fullSize: {
     width: width,
@@ -12,6 +14,7 @@ const styles = {
   },
   spacer: {
     flex: 1,
+    minHeight: width * 0.1
   },
 
   Presentation: {
