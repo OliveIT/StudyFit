@@ -14,7 +14,7 @@ const styles = {
   },
   spacer: {
     flex: 1,
-    minHeight: width * 0.1
+    minHeight: width * 0.05
   },
 
   Presentation: {

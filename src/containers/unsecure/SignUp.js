@@ -24,8 +24,38 @@ class SignUp extends React.Component {
     this.props.navigation.pop();
   }
 
+  validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  };
+
   onSignUp() {
-    this.props.navigation.navigate("signup");
+    const fields = ["inputFirstName", "inputLastName", "inputEmail", "inputPwd", "inputConfirmPwd"];
+    for (var i = 0; i < fields.length; i ++) {
+      const field = fields [i];
+      console.log(field, this.refs [field], this.refs [field]._lastNativeText);
+      if (!this.refs [field]._lastNativeText || this.refs [field]._lastNativeText.trim() == "") {
+        this.refs [field].focus();
+        return;
+      }
+    }
+    const params = {
+      firstName: this.refs.inputFirstName._lastNativeText,
+      lastName: this.refs.inputLastName._lastNativeText,
+      email: this.refs.inputEmail._lastNativeText,
+      password: this.refs.inputPwd._lastNativeText,
+    };
+    const confirmPwd = this.refs.inputConfirmPwd._lastNativeText;
+
+    if (!this.validateEmail(params.email)) {
+      this.refs.inputEmail.focus();
+      return;
+    }
+
+    if (params.password != confirmPwd) {
+      this.refs.inputConfirmPwd.focus();
+      return;
+    }
   }
 
   render() {
@@ -36,10 +66,11 @@ class SignUp extends React.Component {
           <View>
             <Text style={styles.SignIn.logo}>Study Fit</Text>
             
-            <TextInput placeholder="First name" style={styles.SignIn.input} placeholderTextColor='#eee'/>
-            <TextInput placeholder="Last name" style={styles.SignIn.input} placeholderTextColor='#eee'/>
-            <TextInput keyboardType="email-address" placeholder="Email" style={styles.SignIn.input} placeholderTextColor='#eee'/>
-            <TextInput secureTextEntry={true} placeholder="Password" style={styles.SignIn.input} placeholderTextColor='#eee'/>
+            <TextInput placeholder="First name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputFirstName"/>
+            <TextInput placeholder="Last name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputLastName"/>
+            <TextInput keyboardType="email-address" placeholder="Email" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputEmail"/>
+            <TextInput secureTextEntry={true} placeholder="Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputPwd"/>
+            <TextInput secureTextEntry={true} placeholder="Confirm Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputConfirmPwd"/>
 
             <TouchableOpacity style={styles.SignIn.mainBtn.container} onPress={this.onSignUp.bind(this)}>
               <Text style={styles.SignIn.mainBtn.text}>Sign Up</Text>
