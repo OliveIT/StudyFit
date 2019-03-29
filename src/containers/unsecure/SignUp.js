@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Image, ImageBackground, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Image, ImageBackground, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { connect } from "react-redux";
 import firebase from 'firebase';
 
@@ -35,7 +35,6 @@ class SignUp extends React.Component {
     const fields = ["inputFirstName", "inputLastName", "inputEmail", "inputPwd", "inputConfirmPwd"];
     for (var i = 0; i < fields.length; i ++) {
       const field = fields [i];
-      console.log(field, this.refs [field], this.refs [field]._lastNativeText);
       if (!this.refs [field]._lastNativeText || this.refs [field]._lastNativeText.trim() == "") {
         this.refs [field].focus();
         return;
@@ -68,7 +67,7 @@ class SignUp extends React.Component {
       })
       .catch(error => {
         this.setState({ isProcessing: false });
-        alert(error.message);
+        Alert.alert("StudyFit", error.message);
       });
   }
 
@@ -78,12 +77,13 @@ class SignUp extends React.Component {
       .ref('users')
       .push(params)
       .then((data) => {
-        this.setState({ isProcessing: false });
         this.props.navigation.replace("home");
       })
       .catch(error => {
+        Alert.alert("StudyFit", error.message);
+      })
+      .finally(() => {
         this.setState({ isProcessing: false });
-        alert(error.message);
       })
   }
 

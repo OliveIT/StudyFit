@@ -5,10 +5,12 @@ import Presentation from "../containers/unsecure/Presentation";
 import SignIn from "../containers/unsecure/SignIn";
 import SignUp from "../containers/unsecure/SignUp";
 
+import Home from "../containers/secure/Home";
+import ForgotPwd from "../containers/unsecure/ForgotPwd";
+
 export const INITIAL_ROUTE = 'unsecured';
 export const INITIAL_SECURED_ROUTE = 'home';
 export const INITIAL_UNSECURED_ROUTE = 'presentation';
-
 
 const unsecuredRoutes = {
   presentation: {
@@ -20,26 +22,26 @@ const unsecuredRoutes = {
   signup: {
     screen: SignUp
   },
+  forgotpwd: {
+    screen: ForgotPwd
+  },
+  home: {
+    screen: Home
+  },
 }
 
 const Routes = {
   unsecured: {
-      screen: createStackNavigator(unsecuredRoutes, {
-          initialRouteName: INITIAL_UNSECURED_ROUTE,
-          headerMode: 'none',
-      })
+    screen: createStackNavigator(unsecuredRoutes, {
+        initialRouteName: INITIAL_UNSECURED_ROUTE,
+        headerMode: 'none',
+    })
   },
-  
-//  secured: {
-//  }
 };
 
 const mainNavigator = createStackNavigator(Routes, {
   initialRouteName: INITIAL_ROUTE,
   headerMode: 'none',
 });
-
-
-
 
 export default createAppContainer(mainNavigator);

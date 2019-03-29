@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { View, Image, ImageBackground, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Image, ImageBackground, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { connect } from "react-redux";
+import firebase from 'firebase';
 
 import styles from '../../styles';
 
@@ -14,20 +15,37 @@ class ForgotPwd extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isProcessing: false
     }
   }
 
   componentDidMount() {
   }
 
-  onSignIn() {}
-
-  onForgotPwd() {
-    this.props.navigation.navigate("forgotpwd");
+  onSend() {
+    const email = this.refs.inputEmail._lastNativeText;
+    this.setState({ isProcessing: true });
+    firebase
+      .auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        Alert.alert(
+          "StudyFit",
+          "Please check your email.",
+          [{text: 'OK', onPress: () => this.props.navigation.pop()}],
+          {cancelable: false},
+        );
+      })
+      .catch((error) => {
+        Alert.alert("StudyFit", error.message);
+      })
+      .finally(() => {
+        this.setState({ isProcessing: false });
+      })
   }
 
-  onSignUp() {
-    this.props.navigation.push("signup");
+  onSignIn() {
+    this.props.navigation.pop();
   }
 
   render() {
@@ -38,9 +56,9 @@ class ForgotPwd extends React.Component {
           <View>
             <Text style={styles.SignIn.logo}>Study Fit</Text>
 
-            <TextInput keyboardType="email-address" placeholder="Email" style={styles.SignIn.input} placeholderTextColor='#eee'/>
+            <TextInput keyboardType="email-address" placeholder="Email" ref="inputEmail" style={styles.SignIn.input} placeholderTextColor='#eee' value="leosuzin1126@gmail.com"/>
 
-            <TouchableOpacity style={styles.SignIn.mainBtn.container} onPress={this.onSignIn.bind(this)}>
+            <TouchableOpacity style={styles.SignIn.mainBtn.container} onPress={this.onSend.bind(this)} disabled={this.state.isProcessing}>
               <Text style={styles.SignIn.mainBtn.text}>Send Verification Code</Text>
             </TouchableOpacity>
           </View>
@@ -48,7 +66,7 @@ class ForgotPwd extends React.Component {
           <View style={styles.SignIn.signUpContainer}>
             <View style={styles.SignIn.signUpContainerView}>
               <Text style={styles.SignIn.signUp.description}>I have an account.</Text>
-              <TouchableOpacity style={styles.SignIn.signUp.btnContainer} onPress={this.onSignUp.bind(this)}>
+              <TouchableOpacity style={styles.SignIn.signUp.btnContainer} onPress={this.onSignIn.bind(this)}>
                 <Text style={styles.SignIn.signUp.btnText}>Sign In.</Text>
               </TouchableOpacity>
             </View>
