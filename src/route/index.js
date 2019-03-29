@@ -2,6 +2,7 @@ import React from "react";
 import { createDrawerNavigator, createStackNavigator, createAppContainer } from "react-navigation";
 
 import Presentation from "../containers/unsecure/Presentation";
+import SignIn from "../containers/unsecure/SignIn";
 
 export const INITIAL_ROUTE = 'unsecured';
 export const INITIAL_SECURED_ROUTE = 'home';
@@ -11,6 +12,9 @@ export const INITIAL_UNSECURED_ROUTE = 'presentation';
 const unsecuredRoutes = {
   presentation: {
     screen: Presentation
+  },
+  signin: {
+    screen: SignIn
   },
 }
 

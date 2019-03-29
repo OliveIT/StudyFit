@@ -9,13 +9,13 @@ import ImgLifter from '../../../assets/images/lifter.png';
 class Presentation extends React.Component {
   componentDidMount() {
     setTimeout(() => {
-//      this.props.navigation.naviga
+      this.props.navigation.replace("signin");
     }, 1000);
   }
 
   render() {
     return (
-      <View style={[styles.fullSize, styles.Presentation.page]}>
+      <View style={styles.fullSize}>
         <View style={styles.Presentation.logo}>
           <Text style={styles.Presentation.mainLogo}>Study Fit</Text>
           <Text style={styles.Presentation.logoDescription}>Achieve academic success whilst increasing fitness levels</Text>
