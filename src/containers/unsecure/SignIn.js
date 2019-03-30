@@ -41,7 +41,7 @@ class SignIn extends React.Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(credential => {
-        this.props.navigation.push("home");
+        this.props.navigation.push("tab");
       })
       .catch(error => {
         Alert.alert("StudyFit", error.message);

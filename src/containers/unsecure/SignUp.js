@@ -77,7 +77,7 @@ class SignUp extends React.Component {
       .ref('users')
       .push(params)
       .then((data) => {
-        this.props.navigation.replace("home");
+        this.props.navigation.replace("tab");
       })
       .catch(error => {
         Alert.alert("StudyFit", error.message);

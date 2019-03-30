@@ -113,6 +113,12 @@ const styles = {
         fontWeight: 'bold'
       }
     }
+  },
+
+  tabBar: {
+    backgroundColor: 'white',
+    borderTopColor: '#800080',
+    borderTopWidth: 2
   }
 };
 

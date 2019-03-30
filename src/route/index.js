@@ -5,7 +5,7 @@ import Presentation from "../containers/unsecure/Presentation";
 import SignIn from "../containers/unsecure/SignIn";
 import SignUp from "../containers/unsecure/SignUp";
 
-import Home from "../containers/secure/Home";
+import Tab from "../containers/secure/Tab";
 import ForgotPwd from "../containers/unsecure/ForgotPwd";
 
 export const INITIAL_ROUTE = 'unsecured';
@@ -25,8 +25,8 @@ const unsecuredRoutes = {
   forgotpwd: {
     screen: ForgotPwd
   },
-  home: {
-    screen: Home
+  tab: {
+    screen: Tab
   },
 }
 
