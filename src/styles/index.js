@@ -119,6 +119,46 @@ const styles = {
     backgroundColor: 'white',
     borderTopColor: '#800080',
     borderTopWidth: 2
+  },
+
+  page: {
+    header: {
+      height: width * 0.2,
+    },
+    headerText: {
+      color: '#800080',
+      textAlign: 'center',
+      fontSize: width * 0.06,
+      fontWeight: 'bold',
+      borderBottomColor: '#800080',
+      borderBottomWidth: 2,
+      padding: width * 0.02
+    },
+    content: {
+      width: width,
+      flexDirection: 'column',
+      flex: 1
+    },
+  },
+
+  Step: {
+    ring: {
+      alignSelf: 'center',
+      width: width * 0.8,
+      height: width * 0.9
+    },
+    iconBox: {
+      alignSelf: 'center'
+    },
+    icon: {
+      alignSelf: 'center'
+    },
+    text: {
+      fontSize: width * 0.07,
+      fontWeight: 'bold',
+      color: '#fff',
+      textAlign: 'center'
+    }
   }
 };
 

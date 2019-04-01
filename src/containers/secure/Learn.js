@@ -3,7 +3,7 @@ import { View, Image, ScrollView, Text, Dimensions, TextInput, TouchableOpacity 
 
 import styles from '../../styles';
 
-class Shop extends React.Component {
+class Learn extends React.Component {
   componentDidMount() {
   }
 
@@ -11,7 +11,7 @@ class Shop extends React.Component {
     return (
       <View style={styles.fullSize}>
         <View style={styles.page.header}>
-          <Text style={styles.page.headerText}>Shop</Text>
+          <Text style={styles.page.headerText}>Learning Hub</Text>
         </View>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
         </ScrollView>
@@ -20,4 +20,4 @@ class Shop extends React.Component {
   }
 }
 
-export default Shop;
+export default Learn;

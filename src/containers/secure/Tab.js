@@ -3,8 +3,11 @@ import { Button, Text, View, Dimensions } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Home from './Home';
 import Shop from './Shop';
+import Step from './Step';
+import Home from './Home';
+import Learn from './Learn';
+
 import styles from '../../styles';
 
 export default class Tab extends React.Component {
@@ -12,9 +15,9 @@ export default class Tab extends React.Component {
     index: 0,
     routes: [
       { key: 'shop', title: 'Shop', icon: 'shopping-cart' },
-      { key: 'step', title: 'Home', icon: 'male' },
+      { key: 'step', title: 'Step', icon: 'male' },
       { key: 'home', title: 'Home', icon: 'money' },
-      { key: 'learn', title: 'Shop', icon: 'pencil' },
+      { key: 'learn', title: 'Learning hub', icon: 'pencil' },
     ],
   };
  
@@ -25,9 +28,9 @@ export default class Tab extends React.Component {
         navigationState={this.state}
         renderScene={SceneMap({
           shop: Shop,
-          step: Home,
-          home: Shop,
-          learn: Home,
+          step: Step,
+          home: Home,
+          learn: Learn,
         })}
         onIndexChange={index => this.setState({ index })}
         initialLayout={{ width: Dimensions.get('window').width }}

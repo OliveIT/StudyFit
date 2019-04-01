@@ -4,7 +4,7 @@ import { View, Image, ImageBackground, Text, Dimensions, TextInput, TouchableOpa
 import styles from '../../styles';
 
 import ImgBook from '../../../assets/images/book.png';
-import ImgLifter from '../../../assets/images/lifter.png';
+import ImgLifter from '../../../assets/images/lifter.jpg';
 
 class Presentation extends React.Component {
   componentDidMount() {

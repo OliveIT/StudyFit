@@ -4,16 +4,16 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from '../../styles';
 
-import ImgBack from '../../../assets/images/scenic.jpg';
+import ImgBack from '../../../assets/images/purple.jpg';
 import ImgRing from '../../../assets/images/ring.png';
 
 const {width} = Dimensions.get("window");
 
-class Home extends React.Component {
+class Step extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      money: 1000
+      steps: 2
     }
   }
 
@@ -27,8 +27,8 @@ class Home extends React.Component {
         <ImageBackground source={ImgRing} style={styles.Step.ring} imageStyle={{resizeMode: "contain"}}>
           <View style={styles.spacer}></View>
           <View style={styles.Step.iconBox}>
-            <Icon name="money" size={width * 0.3} color="#fff" style={styles.Step.icon}/>
-            <Text style={styles.Step.text}>{this.state.money}</Text>
+            <Icon name="male" size={width * 0.3} color="#fff" style={styles.Step.icon}/>
+            <Text style={styles.Step.text}>{this.state.steps} Steps</Text>
           </View>
           <View style={styles.spacer}></View>
         </ImageBackground>
@@ -38,4 +38,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Step;
