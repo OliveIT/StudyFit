@@ -144,8 +144,8 @@ const styles = {
   Step: {
     ring: {
       alignSelf: 'center',
-      width: width * 0.8,
-      height: width * 0.9
+      width: width * 0.6,
+      height: width * 0.7
     },
     iconBox: {
       alignSelf: 'center'
@@ -153,8 +153,14 @@ const styles = {
     icon: {
       alignSelf: 'center'
     },
+    bigText: {
+      fontSize: width * 0.2,
+      fontWeight: 'bold',
+      color: '#fff',
+      textAlign: 'center'
+    },
     text: {
-      fontSize: width * 0.07,
+      fontSize: width * 0.05,
       fontWeight: 'bold',
       color: '#fff',
       textAlign: 'center'
