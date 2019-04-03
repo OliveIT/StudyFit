@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, Image, ScrollView, Text, FlatList } from 'react-native';
+import firebase from 'firebase';
 
 import styles from '../../styles';
 import Product from '../../components/Product';
@@ -8,27 +9,22 @@ class Shop extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: [{
-        uri: "https://5.imimg.com/data5/VF/WO/MY-10047938/treadmill-fitness-machine-tm-30-500x500.png",
-        title: "Mild Steel",
-        price: 5000
-      },{
-        uri: "http://cdn.shopify.com/s/files/1/0680/1801/products/HS-Gym_G2-hero_6bd1b7d1-8170-4d15-b9de-8a40cb0cde72_500x.png?v=1429563558",
-        title: "Life Fitness",
-        price: 2000
-      },{
-        uri: "https://www.lifefitness.com.au/wp-content/uploads/2015/04/CS-SigBenchRack_SSM-hero.png",
-        title: "Smith Machine",
-        price: 2500
-      },{
-        uri: "https://lifefitness.com/sites/g/files/dtv111/f/ElevationSeries-CrossTrainer-DiscoverSE3-HD-ArcticSilver-StandardView.png",
-        title: "Commercial Cardio Strength Equipment",
-        price: 7000
-      }]
-    }
+      products: []
+    };
   }
 
   componentDidMount() {
+    firebase
+    .database()
+    .ref('products').on("value", (snapshot) => {
+      const data = snapshot.val();
+      const keys = Object.keys(data);
+      var products = [];
+      keys.map(key => products.push(data [key]));
+      this.setState({
+        products: products
+      });
+    })
   }
 
   render() {
