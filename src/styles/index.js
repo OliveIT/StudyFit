@@ -165,6 +165,56 @@ const styles = {
       color: '#fff',
       textAlign: 'center'
     }
+  },
+
+  Product: {
+    container: {
+      width: width * 0.45,
+      margin: width * 0.025
+    },
+    image: {
+      width: width * 0.45,
+      height: width * 0.5,
+      textAlign: 'center'
+    },
+    title: {
+      fontSize: width * 0.04,
+      fontWeight: 'bold',
+      textAlign: 'center'
+    },
+    priceContainer: {
+      flexDirection: 'row',
+      alignSelf: 'center',
+      alignItems: 'center'
+    },
+    price: {
+      fontSize: width * 0.04,
+      fontWeight: 'bold',
+      color: '#008000',
+      marginLeft: width * 0.01
+    },
+    btnContainer: {
+      width: width * 0.3,
+      alignSelf: 'center',
+      backgroundColor: '#800080',
+      borderRadius: width * 0.01,
+    },
+    btnText: {
+      color: '#fff',
+      fontSize: width * 0.05,
+      textAlign: 'center'
+    }
+  },
+
+  Shop: {
+    container: {
+      backgroundColor: '#f00'
+    },
+    list: {
+      width: width,
+      flexDirection: 'column',
+      flex: 1,
+    }
   }
 };
 
