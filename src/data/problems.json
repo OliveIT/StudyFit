@@ -1,0 +1,22 @@
+[{
+  "title": "What is a variable?",
+  "answer": 0,
+  "questions": [
+    "A named piece of memory that holds a value which can be changed as a program is running",
+    "A value that usually changes as a program is running",
+    "A named piece of memory that holds a value which cannot be changed as a program is running"]
+},{
+  "title": "What is a constant?",
+  "answer": 1,
+  "questions": [
+    "A value that does not usually change as a program is running",
+    "A named piece of memory that holds a value which cannot be changed as a program is running",
+    "A named piece of memory that holds a value which usually changes as a program is running"]
+},{
+  "title": "Giving a variable a value is known as what?",
+  "answer": 1,
+  "questions": [
+    "Equivalence",
+    "Assignment",
+    "Declaration"]
+}]

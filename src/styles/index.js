@@ -123,7 +123,6 @@ const styles = {
 
   page: {
     header: {
-      height: width * 0.2,
     },
     headerText: {
       color: '#800080',
@@ -139,6 +138,12 @@ const styles = {
       flexDirection: 'column',
       flex: 1
     },
+    innerContent: {
+      padding: width * 0.05,
+      width: width,
+      flexDirection: 'column',
+      flex: 1
+    }
   },
 
   Step: {
@@ -214,6 +219,74 @@ const styles = {
       width: width,
       flexDirection: 'column',
       flex: 1,
+    }
+  },
+
+  Learn: {
+    btnStart: {
+      container: {
+        backgroundColor: '#800080',
+        borderRadius: width * 0.01,
+        width: width * 0.7,
+        alignSelf: 'center',
+        padding: width * 0.03
+      },
+      text: {
+        color: '#fff',
+        fontSize: width * 0.06,
+        fontWeight: 'bold',
+        textAlign: 'center'
+      }
+    },
+    note: {
+      color: '#800080',
+      marginBottom: width * 0.03
+    },
+    title: {
+      fontSize: width * 0.05,
+      color: '#111',
+      fontWeight: 'bold',
+      marginBottom: width * 0.05
+    },
+    questionCont: {
+      backgroundColor: '#eee',
+      padding: width * 0.03,
+      borderRadius: width * 0.01,
+      marginBottom: width * 0.05
+    },
+    question: {
+      fontSize: width * 0.04,
+      color: '#444',
+    },
+    timer: {
+      fontSize: width * 0.08,
+      color: '#228B22',
+      alignSelf: 'center'
+    },
+    footer: {
+      flexDirection: 'row'
+    },
+    btnCheck: {
+      container: {
+        backgroundColor: '#800080',
+        padding: width * 0.02,
+        borderRadius: width * 0.01
+      },
+      text: {
+        color: '#fff',
+        fontSize: width * 0.05
+      },
+    },
+    correct: {
+      backgroundColor: '#228B22'
+    },
+    wrong: {
+      backgroundColor: '#FF6347'
+    },
+    textResult: {
+      textAlign: 'center',
+      fontSize: width * 0.06,
+      marginBottom: width * 0.05
     }
   }
 };
