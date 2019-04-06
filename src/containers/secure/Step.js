@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { View, Image, ImageBackground, ScrollView, Text, Dimensions, TextInput, TouchableOpacity, DeviceEventEmitter } from 'react-native';
+import { View, Image, ImageBackground, ScrollView, Text, Dimensions, TextInput, Platform, DeviceEventEmitter } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from "react-redux";
+import Pedometer from 'react-native-pedometer';
 
 import styles from '../../styles';
 
@@ -12,17 +13,43 @@ import {setCoins, setStep} from '../../redux/actions';
 const {width} = Dimensions.get("window");
 
 class Step extends React.Component {
+  lastDate = 0;
+  lastSteps = 0;
+
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    DeviceEventEmitter.addListener('onChangeStepCounts', this.onChangeStepCounts.bind(this));
+    if (Platform.OS == "android")
+      DeviceEventEmitter.addListener('onChangeStepCounts', this.onChangeStepCounts.bind(this));
+    else {
+      this.lastDate = (new Date()).getTime();
+      this.lastSteps = 0;
+      this.startPedometer();
+    }
+  }
+
+  
+  startPedometer(){
+    Pedometer.stopPedometerUpdates();
+    Pedometer.startPedometerUpdatesFromDate(this.lastDate, (pedometerData) => {
+      if (pedometerData.numberOfSteps != 0) {
+        this.onStep(pedometerData.numberOfSteps);
+      }
+      this.lastDate = (new Date()).getTime();
+
+      setTimeout(() => this.startPedometer(), 1000);
+    });
   }
 
   onChangeStepCounts(e) {
-    this.props.setCoins(this.props.data, 1);
-    this.props.setStep(this.props.steps + 1);
+    this.onStep(1);
+  }
+
+  onStep(count) {
+    this.props.setCoins(this.props.data, count);
+    this.props.setStep(this.props.steps + count);
   }
 
   render() {
