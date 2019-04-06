@@ -6,6 +6,7 @@ const initialState = {
     key: "",
     user: {}
   },
+  steps: 0
 }
 
 const reducer = (state = initialState, action) => {
