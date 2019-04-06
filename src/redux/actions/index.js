@@ -1,4 +1,4 @@
-import { SET_USER } from '../types';
+import { SET_USER, SET_STEP } from '../types';
 //import axios from 'axios';
 import firebase from 'firebase';
 
@@ -40,6 +40,10 @@ export const setCoins = (data, plusCoins) => {
     .catch(error => {
     })
   };
+}
+
+export const setStep = (step) => {
+  return (dispatch) => dispatch({ type: SET_STEP, payload: step });
 }
 
 /*

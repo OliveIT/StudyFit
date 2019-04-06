@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Image, ImageBackground, ScrollView, Text, Dimensions, TextInput, TouchableOpacity } from 'react-native';
+import { View, Image, ImageBackground, ScrollView, Text, Dimensions, TextInput, TouchableOpacity, DeviceEventEmitter } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from "react-redux";
 
@@ -7,6 +7,7 @@ import styles from '../../styles';
 
 import ImgBack from '../../../assets/images/stepBack.jpg';
 import ImgRing from '../../../assets/images/stepRing.png';
+import {setCoins, setStep} from '../../redux/actions';
 
 const {width} = Dimensions.get("window");
 
@@ -16,6 +17,12 @@ class Step extends React.Component {
   }
 
   componentDidMount() {
+    DeviceEventEmitter.addListener('onChangeStepCounts', this.onChangeStepCounts.bind(this));
+  }
+
+  onChangeStepCounts(e) {
+    this.props.setCoins(this.props.data, 1);
+    this.props.setStep(this.props.steps + 1);
   }
 
   render() {
@@ -43,6 +50,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
+  setCoins,
+  setStep
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Step);
