@@ -1,21 +1,48 @@
-import { GET_DATA, SET_STOP } from '../types';
+import { SET_USER } from '../types';
 //import axios from 'axios';
+import firebase from 'firebase';
 
-export const fetchData = (callback) => {
+export const onSignIn = (email) => {
   return (dispatch) => {
-    /*const apiUrl = 'https://raw.githubusercontent.com/amazing-co/ac-route/master/MP-123456-010219.json';
-
-    return axios.get(apiUrl)
-      .then(response => {
-        dispatch({ type: GET_DATA, payload: response.data});
-        callback();
+    firebase
+      .database()
+      .ref('users')
+      .once("value", (data) => {
+        data = data.val();
+        Object.keys(data).forEach(key => {
+          if (data [key].email == email) {
+            dispatch({ type: SET_USER, payload: {
+              key: key,
+              user: data [key]
+            }});
+          }
+        });
       })
       .catch(error => {
-        console.log("error", error);
-      });*/
+      })
   };
 };
 
+export const setCoins = (data, plusCoins) => {
+  return (dispatch) => {
+    const {key, user} = data;
+    user.coins += plusCoins;
+
+    firebase
+    .database()
+    .ref(`users/${key}`)
+    .update(user, () => {
+      dispatch({ type: SET_USER, payload: {
+        key: key,
+        user: user
+      }});
+    })
+    .catch(error => {
+    })
+  };
+}
+
+/*
 export const setStop = (stop) => {
   return (dispatch) => dispatch({ type: SET_STOP, payload: stop });
-}
+}*/

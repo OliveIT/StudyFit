@@ -1,2 +1,2 @@
-export const GET_DATA = 'GET_DATA';
-export const SET_STOP = 'SET_STOP';
+export const SET_USER = 'SET_USER';
+//export const SET_COINS = 'SET_COINS';

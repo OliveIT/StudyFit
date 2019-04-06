@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { View, Image, ScrollView, Text, Dimensions, TextInput, TouchableOpacity } from 'react-native';
+import { connect } from "react-redux";
 
 import styles from '../../styles';
 import Problems from '../../data/problems.json';
 
+import {setCoins} from '../../redux/actions';
 class Learn extends React.Component {
   timer = null;
-  defaultTime = 5;
+  defaultTime = 30;
 
   constructor(props) {
     super(props);
@@ -76,12 +78,13 @@ class Learn extends React.Component {
     const {index, rightCount} = this.state;
     const {answer} = Problems [index];
 
-    if (quesIndex == answer)
+    if (quesIndex == answer) {
       this.setState({
         rightCount: rightCount + 1,
         isPaused: true
       });
-    else
+      this.props.setCoins(this.props.data, this.state.countTime + 1);
+    } else
       this.setState({
         isPaused: true
       });
@@ -141,4 +144,12 @@ class Learn extends React.Component {
   }
 }
 
-export default Learn;
+const mapStateToProps = state => ({
+  data: state.reducer.data
+});
+
+const mapDispatchToProps = {
+  setCoins
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Learn);

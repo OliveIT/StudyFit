@@ -3,13 +3,12 @@ import { View, Image, ImageBackground, Text, TextInput, TouchableOpacity, Alert 
 import { connect } from "react-redux";
 import firebase from 'firebase';
 
-import { fetchData, setStop } from '../../redux/actions';
-
 import styles from '../../styles';
 
 import ImgBack from '../../../assets/images/background.jpg';
 import { ScrollView } from 'react-native-gesture-handler';
 
+import {onSignIn} from '../../redux/actions';
 class SignIn extends React.Component {
   static navigationOptions = {
   };
@@ -41,6 +40,7 @@ class SignIn extends React.Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(credential => {
+        this.props.onSignIn(email);
         this.props.navigation.push("tab");
       })
       .catch(error => {
@@ -98,8 +98,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  fetchData,
-  setStop
+  onSignIn
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

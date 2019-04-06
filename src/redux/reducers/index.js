@@ -1,17 +1,20 @@
 import { combineReducers } from "redux";
-import { GET_DATA, SET_STOP } from '../types';
+import { SET_USER, SET_COINS } from '../types';
 
 const initialState = {
-  data: {},
-  curStop: 0
+  data: {
+    key: "",
+    user: {}
+  },
 }
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
-      case GET_DATA:
+      case SET_USER:
         return {...state, data: action.payload};
-      case SET_STOP:
-        return {...state, curStop: action.payload};
+/*      case SET_COINS:
+        state.data.user.coins = action.payload;
+        return state;*/
       default: 
         return state;
   }

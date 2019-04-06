@@ -8,6 +8,8 @@ import styles from '../../styles';
 import ImgBack from '../../../assets/images/background.jpg';
 import { ScrollView } from 'react-native-gesture-handler';
 
+import {onSignIn} from '../../redux/actions';
+
 class SignUp extends React.Component {
   static navigationOptions = {
   };
@@ -45,6 +47,7 @@ class SignUp extends React.Component {
       lastName: this.refs.inputLastName._lastNativeText,
       email: this.refs.inputEmail._lastNativeText,
       password: this.refs.inputPwd._lastNativeText,
+      coins: 0,
     };
     const confirmPwd = this.refs.inputConfirmPwd._lastNativeText;
 
@@ -77,6 +80,7 @@ class SignUp extends React.Component {
       .ref('users')
       .push(params)
       .then((data) => {
+        this.props.onSignIn(params.email);
         this.props.navigation.replace("tab");
       })
       .catch(error => {
@@ -125,6 +129,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
+  onSignIn
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
