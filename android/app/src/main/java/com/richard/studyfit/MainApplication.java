@@ -5,6 +5,8 @@ import android.app.Application;
 import com.facebook.react.ReactApplication;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+import io.invertase.firebase.database.RNFirebaseDatabasePackage;
+
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -39,6 +41,7 @@ public class MainApplication extends Application implements ReactApplication, Se
           new MainReactPackage(),
             new RNFirebasePackage(),
             new RNFirebaseAuthPackage(),
+            new RNFirebaseDatabasePackage(),
             new RNGestureHandlerPackage(),
             new VectorIconsPackage(),
             new StepCounterPackage()
