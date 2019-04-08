@@ -1,4 +1,4 @@
-package com.fitness;
+package com.richard.studyfit;
 
 import android.app.Service;
 import android.content.Context;

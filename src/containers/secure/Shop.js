@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Image, ScrollView, Text, FlatList } from 'react-native';
-import firebase from 'firebase';
+import firebase from 'react-native-firebase';
 
 import styles from '../../styles';
 import Product from '../../components/Product';

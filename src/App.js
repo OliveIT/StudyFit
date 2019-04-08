@@ -10,14 +10,14 @@ import * as React from 'react';
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import Navigation from "./route";
-import firebase from 'firebase';
-import {firebaseConfig} from '../app.json';
+//import firebase from 'react-native-firebase';
+//import {firebaseConfig} from '../app.json';
 //import SplashScreen from 'react-native-splash-screen'
 //import Splash from "./containers/unsecure/splash";
 
 //SplashScreen.hide();
-if (!firebase.apps.length)
-  firebase.initializeApp(firebaseConfig);
+//if (!firebase.apps.length)
+//  firebase.initializeApp(firebaseConfig);
 
 export default class App extends React.Component {
   componentDidMount() {

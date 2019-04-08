@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "850632509797",
+    "firebase_url": "https://studyfit-cf130.firebaseio.com",
+    "project_id": "studyfit-cf130",
+    "storage_bucket": "studyfit-cf130.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850632509797:android:3f027c19fdbc2d1a",
+        "android_client_info": {
+          "package_name": "com.richard.studyfit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0guHxiBWs83avfLQvVmkA47SQfibI8wQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850632509797-4ckqpaqt1hbl9372crblq6ebnqnn5dnr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

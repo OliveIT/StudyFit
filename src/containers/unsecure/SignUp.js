@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Image, ImageBackground, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { connect } from "react-redux";
-import firebase from 'firebase';
+import firebase from 'react-native-firebase';
 
 import styles from '../../styles';
 

@@ -1,4 +1,4 @@
-package com.fitness;
+package com.richard.studyfit;
 
 public class SensorFilter {
 
