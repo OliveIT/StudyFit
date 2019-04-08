@@ -1,0 +1,35 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'fitness' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for fitness
+
+  target 'fitness-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'fitnessTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  pod 'Firebase/Core', '~> 4.13.0'
+
+end
+
+target 'fitness-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for fitness-tvOS
+
+#  target 'fitness-tvOSTests' do
+#    inherit! :search_paths
+    # Pods for testing
+#  end
+
+end
