@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { View, Image, ScrollView, Text, Dimensions, TextInput, TouchableOpacity } from 'react-native';
+import { View, Image, ScrollView, Text, Dimensions, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 import { connect } from "react-redux";
 
 import styles from '../../styles';
 import Problems from '../../data/problems.json';
 
 import {setCoins} from '../../redux/actions';
+
+import ImgStopWatch from '../../../assets/images/stopwatch.png';
 class Learn extends React.Component {
   timer = null;
   defaultTime = 30;
@@ -109,7 +111,7 @@ class Learn extends React.Component {
           <View style={styles.spacer}/>
         </View>
         :
-        <View style={styles.page.innerContent}>
+        <ImageBackground style={styles.page.innerContent} source={ImgStopWatch} resizeMode="center">
           <Text style={styles.Learn.note}>Quiz {index + 1} of {Problems.length}</Text>
           <Text style={styles.Learn.title}>{title}</Text>
 
@@ -129,7 +131,7 @@ class Learn extends React.Component {
               <Text style={styles.Learn.btnCheck.text}>{!isPaused ? "Check Answer" : "Next Question"}</Text>
             </TouchableOpacity>
           </View>
-        </View>)
+        </ImageBackground>)
         :
         <View style={styles.page.innerContent}>
           <View style={styles.spacer}/>

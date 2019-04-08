@@ -249,7 +249,7 @@ const styles = {
       marginBottom: width * 0.05
     },
     questionCont: {
-      backgroundColor: '#eee',
+      backgroundColor: '#00000022',
       padding: width * 0.03,
       borderRadius: width * 0.01,
       marginBottom: width * 0.05
