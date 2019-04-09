@@ -11,6 +11,32 @@ class Shop extends React.Component {
     this.state = {
       products: []
     };
+    /*const products = [{
+      uri: "https://cdn.discordapp.com/attachments/442188614583975956/565142846907351040/GoldStandardProtein.jpg",
+      title: "Gold standard protein",
+      price: 4000
+    },{
+      uri: "https://cdn.discordapp.com/attachments/442188614583975956/565142852548558848/ComputerScienceBook.jpg",
+      title: "Computer science book",
+      price: 2000
+    },{
+      uri: "https://cdn.discordapp.com/attachments/442188614583975956/565142836538769418/Treadmill.jpg",
+      title: "Treadmill",
+      price: 10000
+    },{
+      uri: "https://cdn.discordapp.com/attachments/442188614583975956/565142859154456577/Kindle.jpg",
+      title: "Kindle",
+      price: 8000
+    },{
+      uri: "https://cdn.discordapp.com/attachments/442188614583975956/565142861218185216/NikeRunningShoes.jpg",
+      title: "Nike running shoes",
+      price: 6000
+    },{
+      uri: "https://cdn.discordapp.com/attachments/442188614583975956/565142863906603012/HPLaptop.jpg",
+      title: "HP laptop",
+      price: 20000
+    }];
+    products.forEach(product => firebase.database().ref("products").push(product));*/
   }
 
   componentDidMount() {
