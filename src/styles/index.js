@@ -199,16 +199,35 @@ const styles = {
       color: '#008000',
       marginLeft: width * 0.01
     },
-    btnContainer: {
-      width: width * 0.3,
-      alignSelf: 'center',
-      backgroundColor: '#800080',
-      borderRadius: width * 0.01,
+    btn: {
+      container: {
+        width: width * 0.3,
+        alignSelf: 'center',
+        backgroundColor: '#fff',
+        borderRadius: width * 0.01,
+        borderWidth: 1,
+        borderColor: '#800080'
+      },
+      text: {
+        color: '#800080',
+        fontSize: width * 0.05,
+        textAlign: 'center'
+      }
     },
-    btnText: {
-      color: '#fff',
-      fontSize: width * 0.05,
-      textAlign: 'center'
+    activeBtn: {
+      container: {
+        width: width * 0.3,
+        alignSelf: 'center',
+        backgroundColor: '#800080',
+        borderRadius: width * 0.01,
+        borderWidth: 1,
+        borderColor: '#800080'
+      },
+      text: {
+        color: '#fff',
+        fontSize: width * 0.05,
+        textAlign: 'center'
+      }
     }
   },
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Image, ImageBackground, ScrollView, Text, Dimensions, TextInput, TouchableOpacity } from 'react-native';
+import { View, Image, ImageBackground, ScrollView, Text, Dimensions, TextInput, TouchableHighlight, Button } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from '../styles';
@@ -9,6 +9,7 @@ const {width} = Dimensions.get("window");
 class Product extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { pressStatus: false };
   }
 
   componentDidMount() {
@@ -16,6 +17,13 @@ class Product extends React.Component {
 
   onPurchase() {
     
+  }
+
+  _onHideUnderlay() {
+    this.setState({ pressStatus: false });
+  }
+  _onShowUnderlay() {
+      this.setState({ pressStatus: true });
   }
 
   render() {
@@ -29,9 +37,14 @@ class Product extends React.Component {
           <Icon name="money" size={width * 0.1} color="#008000" style={styles.Step.icon}/>
           <Text style={styles.Product.price}>{price}</Text>
         </View>
-        <TouchableOpacity style={styles.Product.btnContainer} onPress={this.onPurchase.bind(this)}>
-          <Text style={styles.Product.btnText}>Purchase</Text>
-        </TouchableOpacity>
+        <TouchableHighlight
+          style={this.state.pressStatus ? styles.Product.activeBtn.container : styles.Product.btn.container}
+          onPress={this.onPurchase.bind(this)}
+          onHideUnderlay={this._onHideUnderlay.bind(this)}
+          onShowUnderlay={this._onShowUnderlay.bind(this)}
+          underlayColor='#800080'>
+          <Text style={this.state.pressStatus ? styles.Product.activeBtn.text : styles.Product.btn.text}>Purchase</Text>
+        </TouchableHighlight>
       </View>
     );
   }
