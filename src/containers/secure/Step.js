@@ -34,12 +34,11 @@ class Step extends React.Component {
   startPedometer(){
     Pedometer.stopPedometerUpdates();
     Pedometer.startPedometerUpdatesFromDate(this.lastDate, (pedometerData) => {
-      if (pedometerData.numberOfSteps != 0) {
-        this.onStep(pedometerData.numberOfSteps);
+      if (pedometerData.numberOfSteps != 0
+          && pedometerData.numberOfSteps - this.lastSteps > 0) {
+        this.onStep(pedometerData.numberOfSteps - this.lastSteps);
+        this.lastSteps = pedometerData.numberOfSteps;
       }
-      this.lastDate = (new Date()).getTime();
-
-      setTimeout(() => this.startPedometer(), 1000);
     });
   }
 

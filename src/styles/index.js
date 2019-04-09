@@ -64,6 +64,7 @@ const styles = {
       color: '#fff',
       paddingLeft: width * 0.03,
       paddingRight: width * 0.03,
+      height: width * 0.1,
       marginBottom: width * 0.05,
       borderRadius: 5
     },

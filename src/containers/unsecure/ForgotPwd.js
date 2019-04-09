@@ -50,7 +50,7 @@ class ForgotPwd extends React.Component {
 
   render() {
     return (
-      <ScrollView contentContainerStyle={{flexGrow: 1}}>
+      <ScrollView contentContainerStyle={{flexGrow: 1}} bounces = {false}>
         <ImageBackground source={ImgBack} style={styles.fullSize}>
           <View style={styles.spacer}/>
           <View>
