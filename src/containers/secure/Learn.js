@@ -98,8 +98,8 @@ class Learn extends React.Component {
 
     return (
       <View style={styles.fullSize}>
-        <View style={styles.page.header}>
-          <Text style={styles.page.headerText}>Learning Hub</Text>
+        <View style={styles.page.header.container}>
+          <Text style={styles.page.header.title}>Learning Hub</Text>
         </View>
         {!isComplete ? (
         !isStart ?

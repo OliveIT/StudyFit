@@ -124,15 +124,16 @@ const styles = {
 
   page: {
     header: {
-    },
-    headerText: {
-      color: '#800080',
-      textAlign: 'center',
-      fontSize: width * 0.06,
-      fontWeight: 'bold',
-      borderBottomColor: '#800080',
-      borderBottomWidth: 2,
-      padding: width * 0.02
+      container: {},
+      title: {
+        color: '#800080',
+        textAlign: 'center',
+        fontSize: width * 0.06,
+        fontWeight: 'bold',
+        borderBottomColor: '#800080',
+        borderBottomWidth: 2,
+        padding: width * 0.02
+      },
     },
     content: {
       width: width,
@@ -307,6 +308,51 @@ const styles = {
       textAlign: 'center',
       fontSize: width * 0.06,
       marginBottom: width * 0.05
+    }
+  },
+
+  Profile: {
+    input: {
+      width: width * 0.9,
+      alignSelf: 'center',
+      color: '#333',
+      paddingLeft: width * 0.03,
+      paddingRight: width * 0.03,
+      height: width * 0.1,
+      marginBottom: width * 0.05,
+      borderRadius: 5,
+      borderColor: '#800080',
+      borderWidth: 1
+    },
+    data: {
+      group: {
+        marginBottom: width * 0.02,
+        display: 'flex',
+        flexDirection: 'row'
+      },
+      label: {
+        width: width * 0.3,
+        color: '#333',
+      },
+      content: {
+        color: '#333'
+      },
+    },
+    btn: {
+      container: {
+        backgroundColor: '#800080',
+        borderRadius: width * 0.01,
+        width: width * 0.9,
+        alignSelf: 'center',
+        padding: width * 0.03,
+        marginBottom: width * 0.03
+      },
+      text: {
+        color: '#fff',
+        fontSize: width * 0.04,
+        fontWeight: 'bold',
+        textAlign: 'center'
+      }
     }
   }
 };

@@ -56,8 +56,8 @@ class Shop extends React.Component {
   render() {
     return (
       <View style={styles.fullSize}>
-        <View style={styles.page.header}>
-          <Text style={styles.page.headerText}>Shop</Text>
+        <View style={styles.page.header.container}>
+          <Text style={styles.page.header.title}>Shop</Text>
         </View>
         <FlatList
           style={styles.Shop.list}
