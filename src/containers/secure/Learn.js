@@ -7,7 +7,7 @@ import Problems from '../../data/problems.json';
 
 import {setCoins} from '../../redux/actions';
 
-import ImgStopWatch from '../../../assets/images/stopwatch.png';
+import ImgStopWatch from '../../../assets/images/stopwatchpurple.png';
 class Learn extends React.Component {
   timer = null;
   defaultTime = 30;
