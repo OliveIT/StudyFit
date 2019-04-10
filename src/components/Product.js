@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { View, Image, ImageBackground, ScrollView, Text, Dimensions, TextInput, TouchableHighlight, Button } from 'react-native';
+import { View, Image, ImageBackground, ScrollView, Text, Dimensions, TextInput, TouchableHighlight, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { connect } from "react-redux";
 
 import styles from '../styles';
+import {setCoins} from '../redux/actions';
 
 const {width} = Dimensions.get("window");
 
@@ -15,8 +17,25 @@ class Product extends React.Component {
   componentDidMount() {
   }
 
+  alert(message) {
+    Alert.alert(
+      "StudyFit",
+      message,
+      [{text: 'OK', onPress: () => {}}],
+      {cancelable: false},
+    );
+  }
+
   onPurchase() {
-    
+    const {price} = this.props;
+    const {coins} = this.props.data.user;
+
+    if (coins >= price) {
+      this.props.setCoins(-price);
+      this.alert("Thank you, your phuchase was successful.");
+    } else {
+      this.alert("Sorry, you don't have enough currency to make the purchase.");
+    }
   }
 
   _onHideUnderlay() {
@@ -50,4 +69,12 @@ class Product extends React.Component {
   }
 }
 
-export default Product;
+const mapStateToProps = state => ({
+  data: state.reducer.data
+});
+
+const mapDispatchToProps = {
+  setCoins
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);
