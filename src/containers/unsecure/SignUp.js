@@ -49,6 +49,7 @@ class SignUp extends React.Component {
       email: this.refs.inputEmail._lastNativeText,
       password: this.refs.inputPwd._lastNativeText,
       coins: 0,
+      steps: 0
     };
     const confirmPwd = this.refs.inputConfirmPwd._lastNativeText;
 

@@ -8,7 +8,7 @@ import styles from '../../styles';
 
 import ImgBack from '../../../assets/images/stepBack.jpg';
 import ImgRing from '../../../assets/images/stepRing.png';
-import {setCoins, setStep} from '../../redux/actions';
+import {setStepAndCoins} from '../../redux/actions';
 
 const {width} = Dimensions.get("window");
 
@@ -47,8 +47,7 @@ class Step extends React.Component {
   }
 
   onStep(count) {
-    this.props.setCoins(this.props.data, count);
-    this.props.setStep(this.props.steps + count);
+    this.props.setStepAndCoins(this.props.data, count, this.props.data.user.steps + count);
   }
 
   render() {
@@ -59,7 +58,7 @@ class Step extends React.Component {
           <View style={styles.spacer}></View>
           <View style={styles.Step.iconBox}>
             {/*<Icon name="male" size={width * 0.3} color="#fff" style={styles.Step.icon}/>*/}
-            <Text style={styles.Step.bigText}>{this.props.steps}</Text>
+            <Text style={styles.Step.bigText}>{this.props.data.user.steps}</Text>
             <Text style={styles.Step.text}>Steps</Text>
           </View>
           <View style={styles.spacer}></View>
@@ -72,12 +71,10 @@ class Step extends React.Component {
 
 const mapStateToProps = state => ({
   data: state.reducer.data,
-  steps: state.reducer.steps
 });
 
 const mapDispatchToProps = {
-  setCoins,
-  setStep
+  setStepAndCoins
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Step);

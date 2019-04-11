@@ -1,4 +1,4 @@
-import { SET_USER, SET_STEP } from '../types';
+import { SET_USER } from '../types';
 //import axios from 'axios';
 import firebase from 'react-native-firebase';
 
@@ -42,8 +42,24 @@ export const setCoins = (data, plusCoins) => {
   };
 }
 
-export const setStep = (step) => {
-  return (dispatch) => dispatch({ type: SET_STEP, payload: step });
+export const setStepAndCoins = (data, plusCoins, steps) => {
+  return (dispatch) => {
+    const {key, user} = data;
+    user.coins += plusCoins;
+    user.steps = steps;
+
+    firebase
+    .database()
+    .ref(`users/${key}`)
+    .update(user, () => {
+      dispatch({ type: SET_USER, payload: {
+        key: key,
+        user: user
+      }});
+    })
+    .catch(error => {
+    })
+  };
 }
 
 /*
