@@ -127,7 +127,7 @@ class Learn extends React.Component {
           <View style={styles.spacer}/>
         </View>
         :
-        <ImageBackground style={styles.page.innerContent} source={ImgStopWatch} resizeMode="center">
+        <ImageBackground style={styles.page.innerContent} source={ImgStopWatch} resizeMode="contain">
           <Text style={styles.Learn.note}>Quiz {index + 1} of {Problems.length}</Text>
           <Text style={styles.Learn.title}>{title}</Text>
 
