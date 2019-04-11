@@ -67,8 +67,8 @@ class SignIn extends React.Component {
           <View>
             <Text style={styles.SignIn.logo}>Study Fit</Text>
 
-            <TextInput keyboardType="email-address" placeholder="Email" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputEmail" value="leosuzin1126@gmail.com"/>
-            <TextInput secureTextEntry={true} placeholder="Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputPwd" value="123456"/>
+            <TextInput keyboardType="email-address" placeholder="Email" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputEmail"/>
+            <TextInput secureTextEntry={true} placeholder="Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputPwd"/>
 
             <TouchableOpacity style={styles.SignIn.mainBtn.container} onPress={this.onSignIn.bind(this)} disabled={this.state.isProcessing}>
               <Text style={styles.SignIn.mainBtn.text}>Sign In</Text>

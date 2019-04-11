@@ -101,9 +101,9 @@ class SignUp extends React.Component {
             
             <TextInput placeholder="First name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputFirstName" value="leo"/>
             <TextInput placeholder="Last name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputLastName" value="suzin"/>
-            <TextInput keyboardType="email-address" placeholder="Email" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputEmail" value="leosuzin1126@gmail.com"/>
-            <TextInput secureTextEntry={true} placeholder="Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputPwd" value="123456"/>
-            <TextInput secureTextEntry={true} placeholder="Confirm Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputConfirmPwd" value="123456"/>
+            <TextInput keyboardType="email-address" placeholder="Email" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputEmail"/>
+            <TextInput secureTextEntry={true} placeholder="Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputPwd"/>
+            <TextInput secureTextEntry={true} placeholder="Confirm Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputConfirmPwd"/>
 
             <TouchableOpacity style={styles.SignIn.mainBtn.container} onPress={this.onSignUp.bind(this)} disabled={this.state.isProcessing}>
               <Text style={styles.SignIn.mainBtn.text}>Sign Up</Text>
