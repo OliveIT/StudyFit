@@ -1,6 +1,7 @@
 import { SET_USER } from '../types';
 //import axios from 'axios';
 import firebase from 'react-native-firebase';
+import DefaultPreference from 'react-native-default-preference';
 
 export const onSignIn = (email) => {
   return (dispatch) => {
@@ -11,6 +12,8 @@ export const onSignIn = (email) => {
         data = data.val();
         Object.keys(data).forEach(key => {
           if (data [key].email == email) {
+            DefaultPreference.set("key", key);
+
             dispatch({ type: SET_USER, payload: {
               key: key,
               user: data [key]

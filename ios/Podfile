@@ -10,6 +10,8 @@ target 'fitness' do
   target 'fitness-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RNDefaultPreference', :path => '../node_modules/react-native-default-preference'
+
   end
 
   target 'fitnessTests' do

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View, Image, ImageBackground, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { connect } from "react-redux";
 import firebase from 'react-native-firebase';
+import DefaultPreference from 'react-native-default-preference';
 
 import styles from '../../styles';
 
@@ -21,6 +22,26 @@ class SignIn extends React.Component {
   }
 
   componentDidMount() {
+    DefaultPreference
+    .get("key")
+    .then((key) => {
+      if (key == null) return;
+
+      firebase
+      .database()
+      .ref(`users/${key}`)
+      .once("value", (data) => {
+        data = data.val();
+        if (!data.email) {
+          DefaultPreference.set("key", null);
+          return;
+        }
+
+        this.signInWithFirebase(data.email, data.password);
+      })
+      .catch(error => {
+      })
+    })
   }
 
   onSignIn() {
@@ -35,6 +56,10 @@ class SignIn extends React.Component {
     const email = this.refs.inputEmail._lastNativeText;
     const password = this.refs.inputPwd._lastNativeText;
 
+    this.signInWithFirebase(email, password);
+  }
+
+  signInWithFirebase(email, password) {
     this.setState({ isProcessing: true });
     firebase
       .auth()

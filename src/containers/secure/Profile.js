@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View, Image, TouchableOpacity, Text, TextInput, Alert } from 'react-native';
 import firebase from 'react-native-firebase';
 import { connect } from "react-redux";
+import DefaultPreference from 'react-native-default-preference';
 
 import styles from '../../styles';
 
@@ -71,6 +72,7 @@ class Profile extends React.Component {
     firebase
     .auth()
     .signOut();
+    DefaultPreference.set("key", null);
     this.props.route.navigation.pop();
   }
 
