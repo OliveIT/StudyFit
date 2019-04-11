@@ -99,8 +99,8 @@ class SignUp extends React.Component {
           <View>
             <Text style={styles.SignIn.logo}>Study Fit</Text>
             
-            <TextInput placeholder="First name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputFirstName" value="leo"/>
-            <TextInput placeholder="Last name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputLastName" value="suzin"/>
+            <TextInput placeholder="First name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputFirstName"/>
+            <TextInput placeholder="Last name" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputLastName"/>
             <TextInput keyboardType="email-address" placeholder="Email" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputEmail"/>
             <TextInput secureTextEntry={true} placeholder="Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputPwd"/>
             <TextInput secureTextEntry={true} placeholder="Confirm Password" style={styles.SignIn.input} placeholderTextColor='#eee' ref="inputConfirmPwd"/>
