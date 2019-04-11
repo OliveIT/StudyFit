@@ -31,7 +31,7 @@ class Product extends React.Component {
     const {coins} = this.props.data.user;
 
     if (coins >= price) {
-      this.props.setCoins(-price);
+      this.props.setCoins(this.props.data, -price);
       this.alert("Thank you, your phuchase was successful.");
     } else {
       this.alert("Sorry, you don't have enough currency to make the purchase.");
