@@ -95,7 +95,7 @@ class SignUp extends React.Component {
     return (
       <ScrollView contentContainerStyle={{flexGrow: 1}} bounces = {false}>
         <ImageBackground source={ImgBack} style={styles.fullSize}>
-          <View style={styles.spacer}/>
+            {/*<View style={styles.spacer}/>*/}
           <View>
             <Text style={styles.SignIn.logo}>Study Fit</Text>
             
