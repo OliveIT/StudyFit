@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Image, ScrollView, Text, Dimensions, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
+import { View, Image, ScrollView, Text, Dimensions, TextInput, TouchableOpacity, ImageBackground, Alert } from 'react-native';
 import { connect } from "react-redux";
 
 import styles from '../../styles';
@@ -27,6 +27,15 @@ class Learn extends React.Component {
 
   componentDidMount() {
     this.timer = setInterval(this.onTimer.bind(this), 1000);
+  }
+
+  alert(message) {
+    Alert.alert(
+      "StudyFit",
+      message,
+      [{text: 'OK', onPress: () => {}}],
+      {cancelable: false},
+    );
   }
 
   onStart() {
@@ -69,6 +78,7 @@ class Learn extends React.Component {
       this.setState({
         isPaused: true
       });
+	  this.alert("Time is up!");
     } else {
       this.setState({
         countTime: countTime - 1
@@ -85,11 +95,17 @@ class Learn extends React.Component {
         rightCount: rightCount + 1,
         isPaused: true
       });
-      this.props.setCoins(this.props.data, this.state.countTime + 1);
-    } else
+	  let {countTime} = this.state;
+	  countTime ++;
+	  
+      this.props.setCoins(this.props.data, countTime);
+	  this.alert(`Great! You got ${countTime} coins.`);
+    } else {
+	  this.alert("Ops! You selected wrong answer.");
       this.setState({
         isPaused: true
       });
+	}
   }
 
   render() {
