@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Image, ImageBackground, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, Image, ImageBackground, Text, TextInput, TouchableOpacity, Alert, Dimensions } from 'react-native';
 import { connect } from "react-redux";
 import firebase from 'react-native-firebase';
 
@@ -9,6 +9,7 @@ import ImgBack from '../../../assets/images/background.jpg';
 import { ScrollView } from 'react-native-gesture-handler';
 
 import {onSignIn} from '../../redux/actions';
+const {width, height} = Dimensions.get("window");
 
 class SignUp extends React.Component {
   static navigationOptions = {
@@ -95,7 +96,8 @@ class SignUp extends React.Component {
     return (
       <ScrollView contentContainerStyle={{flexGrow: 1}} bounces = {false}>
         <ImageBackground source={ImgBack} style={styles.fullSize}>
-            {/*<View style={styles.spacer}/>*/}
+          {/*<View style={styles.spacer}/>*/}
+          <View style={{height: width * 0.1}}/>
           <View>
             <Text style={styles.SignIn.logo}>Study Fit</Text>
             
