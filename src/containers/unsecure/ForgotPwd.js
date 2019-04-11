@@ -56,7 +56,7 @@ class ForgotPwd extends React.Component {
           <View>
             <Text style={styles.SignIn.logo}>Study Fit</Text>
 
-            <TextInput keyboardType="email-address" placeholder="Email" ref="inputEmail" style={styles.SignIn.input} placeholderTextColor='#eee' value="leosuzin1126@gmail.com"/>
+            <TextInput keyboardType="email-address" placeholder="Email" ref="inputEmail" style={styles.SignIn.input} placeholderTextColor='#eee'/>
 
             <TouchableOpacity style={styles.SignIn.mainBtn.container} onPress={this.onSend.bind(this)} disabled={this.state.isProcessing}>
               <Text style={styles.SignIn.mainBtn.text}>Send Verification Code</Text>

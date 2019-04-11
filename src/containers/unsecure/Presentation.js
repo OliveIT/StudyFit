@@ -10,7 +10,7 @@ class Presentation extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.navigation.replace("signin");
-    }, 1000);
+    }, 6000);
   }
 
   render() {
