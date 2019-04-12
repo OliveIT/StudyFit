@@ -44,6 +44,7 @@ class Shop extends React.Component {
     .database()
     .ref('products').on("value", (snapshot) => {
       const data = snapshot.val();
+      if (data == null) return;
       const keys = Object.keys(data);
       var products = [];
       keys.map(key => products.push(data [key]));
